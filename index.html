@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Child Safety Enhanced Filter - Cybercrime Protection</title>
+    <title>Child Safety Enhanced Filter - Protecting Children Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,43 +12,127 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Courier New', monospace;
-            line-height: 1.6;
-            color: #00ff00;
-            background: #000;
-            overflow-x: hidden;
+        :root {
+            --primary-blue: #2563eb;
+            --primary-blue-dark: #1d4ed8;
+            --primary-blue-light: #3b82f6;
+            --secondary-green: #10b981;
+            --secondary-green-dark: #059669;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f59e0b;
+            --danger-red: #ef4444;
+            --danger-red-dark: #dc2626;
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-300: #cbd5e1;
+            --neutral-400: #94a3b8;
+            --neutral-500: #64748b;
+            --neutral-600: #475569;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
         }
 
-        /* Cyber Grid Background */
-        .cyber-grid {
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--neutral-800);
+            overflow-x: hidden;
+            background: var(--neutral-50);
+        }
+
+        /* Navbar */
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            animation: gridMove 20s linear infinite;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
 
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.3));
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            color: var(--white);
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+            background: linear-gradient(135deg, var(--primary-blue-light), var(--primary-blue));
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            background: linear-gradient(45deg, #000000, #001100, #000000);
+            justify-content: space-between;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 50%, var(--neutral-200) 100%);
             overflow: hidden;
+            position: relative;
         }
 
         .hero::before {
@@ -57,116 +142,118 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 255, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(0, 100, 255, 0.1) 0%, transparent 50%);
-            animation: threatPulse 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes threatPulse {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.7; }
-        }
-
-        .matrix-rain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
             pointer-events: none;
-            overflow: hidden;
-        }
-
-        .matrix-column {
-            position: absolute;
-            top: -100%;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            color: #00ff00;
-            animation: matrixFall linear infinite;
-            opacity: 0.6;
-        }
-
-        @keyframes matrixFall {
-            to { top: 100%; }
         }
 
         .hero-content {
-            text-align: center;
-            color: #00ff00;
+            flex: 1;
+            max-width: 600px;
+            padding: 2rem;
+            color: var(--neutral-800);
             z-index: 2;
             position: relative;
-            max-width: 900px;
-            padding: 0 20px;
-            border: 2px solid #00ff00;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
         }
 
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
+        .hero-video-container {
+            flex: 1;
+            max-width: 600px;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-video {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: var(--shadow-2xl);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-video:hover {
+            transform: scale(1.02);
+            box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-title {
+            font-size: 3.75rem;
+            font-weight: 800;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 0 0 10px #00ff00;
-            animation: textGlow 2s ease-in-out infinite alternate;
+            line-height: 1.1;
+            color: var(--neutral-900);
+            background: linear-gradient(135deg, var(--neutral-900) 0%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px #00ff00; }
-            100% { text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00; }
+        .hero-subtitle {
+            font-size: 1.375rem;
+            margin-bottom: 2.5rem;
+            color: var(--neutral-600);
+            font-weight: 400;
+            line-height: 1.6;
         }
 
-        .hero .threat-highlight {
-            color: #ff0000;
-            text-shadow: 0 0 10px #ff0000;
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            margin-bottom: 2rem;
-            color: #cccccc;
-        }
-
-        .download-btn {
+        .hero-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+            color: var(--white);
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: linear-gradient(45deg, #ff0000, #ff4444);
-            color: white;
-            padding: 15px 30px;
-            border: 2px solid #ff0000;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            gap: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
         }
 
-        .download-btn:hover {
-            background: linear-gradient(45deg, #ff4444, #ff0000);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
-            transform: translateY(-2px);
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-btn:hover::before {
+            left: 100%;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -12px rgba(37, 99, 235, 0.4);
         }
 
         .scroll-indicator {
             position: absolute;
-            bottom: 30px;
+            bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            color: #00ff00;
-            cursor: pointer;
+            color: var(--neutral-500);
             animation: bounce 2s infinite;
-            z-index: 2;
-            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            color: var(--primary-blue);
+            transform: translateX(-50%) scale(1.1);
         }
 
         @keyframes bounce {
@@ -175,828 +262,949 @@
             60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        /* Section Styles */
+        /* Sections */
         .section {
-            padding: 80px 20px;
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            background: #000;
         }
 
         .section-title {
-            text-align: center;
-            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 3rem;
-            color: #ff0000;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px #ff0000;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--neutral-900);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+            border-radius: 2px;
         }
 
         /* Reporting Section */
-        .reporting {
-            background: linear-gradient(135deg, #000000, #110000);
-            border-top: 2px solid #ff0000;
+        .reporting-section {
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--white) 100%);
+            position: relative;
         }
 
-        .reporting-content {
+        .reporting-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .reporting-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             margin-top: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .reporting-content {
-                grid-template-columns: 1fr 1fr;
-            }
+            position: relative;
+            z-index: 2;
         }
 
         .emergency-contacts {
-            background: rgba(255, 0, 0, 0.1);
-            padding: 2rem;
-            border: 2px solid #ff0000;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--neutral-200);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .emergency-contacts:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-2xl);
         }
 
         .emergency-contacts h3 {
-            color: #ff0000;
+            margin-bottom: 2rem;
+            color: var(--neutral-900);
             font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-transform: uppercase;
+            font-weight: 600;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #00ff00;
-            border-radius: 5px;
+            padding: 1.5rem;
             margin-bottom: 1rem;
-            transition: all 0.3s ease;
+            background: var(--neutral-50);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--neutral-200);
         }
 
         .contact-item:hover {
-            border-color: #ff0000;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+            background: var(--neutral-100);
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
         }
 
-        .contact-item:last-child {
-            margin-bottom: 0;
+        .contact-icon {
+            background: linear-gradient(135deg, var(--danger-red), var(--danger-red-dark));
+            color: var(--white);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.25rem;
+            font-weight: bold;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-lg);
         }
 
-        .contact-info h4 {
-            color: #00ff00;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
+        .contact-item strong {
+            color: var(--neutral-900);
+            font-weight: 600;
         }
 
-        .contact-info p {
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
-
-        .contact-info a {
-            color: #00ffff;
+        .contact-item a {
+            color: var(--primary-blue);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .contact-info a:hover {
-            color: #ffffff;
-            text-decoration: underline;
+        .contact-item a:hover {
+            color: var(--primary-blue-dark);
         }
 
         .report-form {
-            background: rgba(0, 255, 0, 0.05);
-            padding: 2rem;
-            border: 2px solid #00ff00;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--neutral-200);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .report-form:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .report-form h3 {
+            margin-bottom: 2rem;
+            color: var(--neutral-900);
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
-            color: #00ff00;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+            color: var(--neutral-700);
+            font-size: 0.95rem;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #00ff00;
-            border-radius: 5px;
+            padding: 1rem;
+            border: 2px solid var(--neutral-200);
+            border-radius: 12px;
             font-size: 1rem;
-            background: rgba(0, 0, 0, 0.8);
-            color: #00ff00;
-            font-family: 'Courier New', monospace;
-            transition: all 0.3s ease;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--white);
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #ff0000;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            transform: translateY(-1px);
         }
 
         .submit-btn {
-            background: linear-gradient(45deg, #00ff00, #44ff44);
-            color: #000;
-            padding: 12px 30px;
-            border: 2px solid #00ff00;
-            border-radius: 5px;
-            font-size: 1rem;
+            background: linear-gradient(135deg, var(--danger-red), var(--danger-red-dark));
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            font-size: 1.05rem;
+            box-shadow: var(--shadow-lg);
         }
 
         .submit-btn:hover {
-            background: linear-gradient(45deg, #44ff44, #00ff00);
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+            background: linear-gradient(135deg, #f87171, var(--danger-red));
         }
 
-        /* Benefits Section */
-        .benefits {
-            background: linear-gradient(135deg, #000000, #001100);
-            border-top: 2px solid #00ff00;
+        /* Features Section */
+        .features-section {
+            background: var(--white);
         }
 
-        .benefits-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
-        .benefit-card {
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
             text-align: center;
-            padding: 2rem;
-            background: rgba(0, 255, 0, 0.05);
-            border: 2px solid #00ff00;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--neutral-200);
             position: relative;
             overflow: hidden;
         }
 
-        .benefit-card::before {
+        .feature-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 0, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
-            opacity: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
         }
 
-        .benefit-card:hover::before {
-            opacity: 1;
-            animation: scan 1s ease-in-out;
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
         }
 
-        @keyframes scan {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
         }
 
-        .benefit-card:hover {
-            border-color: #ff0000;
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .benefit-icon {
-            font-size: 3rem;
+        .feature-title {
+            font-size: 1.375rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
+            color: var(--neutral-900);
         }
 
-        .benefit-card h3 {
-            color: #00ff00;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 1;
-        }
-
-        .benefit-card p {
-            color: #cccccc;
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
+        .feature-desc {
+            color: var(--neutral-600);
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         /* Installation Guide */
-        .install-section {
-            margin-top: 4rem;
-            text-align: center;
+        .installation-section {
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
         }
 
-        .install-btn {
-            background: linear-gradient(45deg, #0000ff, #4444ff);
-            color: white;
-            padding: 15px 30px;
-            border: 2px solid #0000ff;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
-        }
-
-        .install-btn:hover {
-            background: linear-gradient(45deg, #4444ff, #0000ff);
-            box-shadow: 0 0 20px rgba(0, 0, 255, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #000000, #001100);
-            margin: 5% auto;
-            padding: 2rem;
-            border: 2px solid #00ff00;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
-        }
-
-        .close {
-            color: #ff0000;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 15px;
-        }
-
-        .close:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px #ff0000;
-        }
-
-        .install-steps {
-            margin-top: 2rem;
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        .faq-item {
+            background: var(--white);
             margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: rgba(0, 255, 0, 0.05);
-            border: 1px solid #00ff00;
-            border-radius: 5px;
-            border-left: 4px solid #ff0000;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            border: 1px solid var(--neutral-200);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .step-number {
-            background: #ff0000;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+        .faq-item:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-question {
+            padding: 2rem;
+            cursor: pointer;
+            font-weight: 600;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-            font-family: 'Courier New', monospace;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--neutral-900);
+            font-size: 1.125rem;
         }
 
-        .step-content h4 {
-            color: #00ff00;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
+        .faq-question:hover {
+            background: var(--neutral-50);
         }
 
-        .step-content p {
-            color: #cccccc;
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--neutral-700);
+        }
+
+        .faq-answer.active {
+            max-height: 600px;
+            padding: 2rem;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+        }
+
+        .faq-toggle.active {
+            transform: rotate(180deg);
         }
 
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, #000000, #110000);
-            color: #00ff00;
-            padding: 3rem 20px 2rem;
+            background: linear-gradient(135deg, var(--neutral-900) 0%, var(--neutral-800) 100%);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
             text-align: center;
-            border-top: 2px solid #ff0000;
+            position: relative;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neutral-600), transparent);
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
             flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: #00ffff;
+            color: var(--neutral-300);
             text-decoration: none;
-            font-weight: 500;
             transition: all 0.3s ease;
-            padding: 10px 15px;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            text-transform: uppercase;
-            font-family: 'Courier New', monospace;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
 
         .footer-links a:hover {
-            color: #ffffff;
-            border-color: #00ff00;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
 
         .footer-disclaimer {
-            color: #888888;
-            font-size: 0.9rem;
-            max-width: 600px;
-            margin: 0 auto;
+            color: var(--neutral-400);
+            font-size: 0.95rem;
+            margin-top: 2rem;
             line-height: 1.6;
-            border: 1px solid #333;
-            padding: 20px;
-            border-radius: 5px;
-            background: rgba(0, 0, 0, 0.5);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .section {
-                padding: 60px 20px;
+            .navbar {
+                padding: 1rem;
             }
-            
-            .hero h1 {
-                font-size: 2rem;
+
+            .logo {
+                font-size: 1.25rem;
             }
-            
-            .modal-content {
-                margin: 10% auto;
-                width: 95%;
+
+            .download-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1rem;
             }
 
             .hero-content {
-                padding: 20px;
+                max-width: 100%;
+                order: 2;
+                padding: 1rem;
+            }
+
+            .hero-video-container {
+                max-width: 100%;
+                order: 1;
+                padding: 1rem;
+            }
+
+            .reporting-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section {
+                padding: 4rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .emergency-contacts,
+            .report-form {
+                padding: 2rem;
+            }
+
+            .feature-card {
+                padding: 2rem;
             }
         }
 
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Cyber Effects */
-        .glitch {
-            animation: glitch 2s infinite;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+        /* Loading Animation */
+        .loading-shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
         }
 
-        /* Terminal-like elements */
-        .terminal-text {
-            font-family: 'Courier New', monospace;
-            color: #00ff00;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #00ff00;
-        }
-
-        .terminal-text::before {
-            content: '> ';
-            color: #ff0000;
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
     </style>
 </head>
 <body>
-    <!-- Cyber Grid Background -->
-    <div class="cyber-grid"></div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🛡️</span>
+            Child Safety Enhanced Filter
+        </div>
+        <a href="child-safety-enhanced-extension.zip" class="download-btn">
+            🛡️ Download Extension
+        </a>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="matrix-rain" id="matrixRain"></div>
-        
-        <div class="hero-content">
-            <h1 class="glitch">Protecting Children from <span class="threat-highlight">Cyber Threats</span> Starts Here</h1>
-            <p class="terminal-text">ADVANCED AI-POWERED CYBERCRIME PROTECTION SYSTEM</p>
-            <button class="download-btn" onclick="downloadExtension()">
-                🛡️ DEPLOY PROTECTION
-            </button>
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1 class="hero-title">Protecting Children from Online Harm Starts Here</h1>
+            <p class="hero-subtitle">Free Chrome Extension to Blur Harmful Content in Real-Time</p>
+            <a href="child-safety-enhanced-extension.zip" class="hero-btn">
+                🛡️ Download Extension
+            </a>
         </div>
-        
-        <div class="scroll-indicator" onclick="scrollToSection('reporting')">
-            ▼ SCAN THREATS BELOW ▼
+        <div class="hero-video-container fade-in">
+            <video class="hero-video" autoplay loop controls>
+                <source src="https://videos.pexels.com/video-files/6964375/6964375-uhd_2560_1440_30fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="scroll-indicator">
+            <div style="font-size: 2rem;">↓</div>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem;">Scroll to learn more</div>
         </div>
     </section>
 
-    <!-- Reporting Section -->
-    <section class="section reporting" id="reporting">
-        <h2 class="section-title">
-            ⚠️ REPORT CYBERCRIME & CHILD EXPLOITATION
-        </h2>
-        
-        <div class="reporting-content">
-            <div class="emergency-contacts">
-                <h3>
-                    📞 EMERGENCY CYBER RESPONSE - KERALA
-                </h3>
+    <!-- Child Abuse Reporting Section -->
+    <section class="section reporting-section">
+        <h2 class="section-title fade-in">Report Online Exploitation or Abuse</h2>
+        <div class="reporting-grid">
+            <div class="emergency-contacts fade-in">
+                <h3>Emergency Contacts for Kerala</h3>
                 
                 <div class="contact-item">
-                    <div style="color: #ff0000; font-size: 24px;">🚨</div>
-                    <div class="contact-info">
-                        <h4>Kerala Police Cyberdome</h4>
-                        <p>Emergency Hotline: <strong>112</strong></p>
-                        <p>Cyber Portal: <a href="https://cyberdome.kerala.gov.in" target="_blank">cyberdome.kerala.gov.in</a></p>
-                        <p class="terminal-text">24/7 CYBER THREAT RESPONSE</p>
+                    <div class="contact-icon">🌐</div>
+                    <div>
+                        <strong>Cyberdome Kerala</strong><br>
+                        <a href="https://www.cyberdome.kerala.gov.in" target="_blank">www.cyberdome.kerala.gov.in</a>
                     </div>
                 </div>
-                
+
                 <div class="contact-item">
-                    <div style="color: #00ff00; font-size: 24px;">🔒</div>
-                    <div class="contact-info">
-                        <h4>Childline India Cyber Unit</h4>
-                        <p>Child Protection: <strong>1098</strong></p>
-                        <p class="terminal-text">CHILD SAFETY PROTOCOL ACTIVE</p>
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <strong>Childline India</strong><br>
+                        Call: <strong>1098</strong> (24/7 Free)
                     </div>
                 </div>
-                
+
                 <div class="contact-item">
-                    <div style="color: #0000ff; font-size: 24px;">⚡</div>
-                    <div class="contact-info">
-                        <h4>Kerala Women & Child Cyber Division</h4>
-                        <p>Support Line: <strong>181</strong></p>
-                        <p class="terminal-text">SPECIALIZED CYBER CRIMES UNIT</p>
+                    <div class="contact-icon">👩‍⚕️</div>
+                    <div>
+                        <strong>Kerala Women & Child Helpline</strong><br>
+                        Call: <strong>181</strong> (24/7 Support)
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🚨</div>
+                    <div>
+                        <strong>Emergency Services</strong><br>
+                        Call: <strong>100</strong> (Police)
                     </div>
                 </div>
             </div>
-            
-            <div class="report-form">
-                <h3 style="color: #00ff00; margin-bottom: 1.5rem; text-transform: uppercase;">SUBMIT THREAT REPORT</h3>
-                <form id="reportForm" onsubmit="submitReport(event)">
+
+            <div class="report-form fade-in">
+                <h3>Report an Incident</h3>
+                <form id="reportForm">
                     <div class="form-group">
-                        <label for="name">OPERATOR ID (Optional)</label>
-                        <input type="text" id="name" name="name" placeholder="Anonymous reporting enabled">
+                        <label for="reporterName">Your Name</label>
+                        <input type="text" id="reporterName" name="reporterName" required>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label for="incidentType">THREAT CLASSIFICATION *</label>
+                        <label for="incidentType">Incident Type</label>
                         <select id="incidentType" name="incidentType" required>
-                            <option value="">Select threat type</option>
-                            <option value="cyberbullying">Cyberbullying Attack</option>
-                            <option value="inappropriate-content">Malicious Content</option>
-                            <option value="predatory-behavior">Predatory Behavior</option>
-                            <option value="exploitation">Child Exploitation</option>
-                            <option value="malware">Malware/Virus</option>
-                            <option value="phishing">Phishing Attempt</option>
-                            <option value="other">Unknown Threat</option>
+                            <option value="">Select incident type</option>
+                            <option value="child-exploitation">Child Exploitation</option>
+                            <option value="cyberbullying">Cyberbullying</option>
+                            <option value="inappropriate-content">Inappropriate Content</option>
+                            <option value="online-predator">Online Predator</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label for="location">LOCATION COORDINATES</label>
-                        <input type="text" id="location" name="location" placeholder="City, District (Optional)">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Please provide details about the incident..." required></textarea>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label for="description">THREAT ANALYSIS</label>
-                        <textarea id="description" name="description" rows="4" placeholder="Provide technical details of the cyber threat..."></textarea>
+                        <label for="location">Location (Optional)</label>
+                        <input type="text" id="location" name="location" placeholder="Website, app, or platform where incident occurred">
                     </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        📡 TRANSMIT REPORT
-                    </button>
+
+                    <button type="submit" class="submit-btn">Submit Report</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="section benefits" id="benefits">
-        <h2 class="section-title">🔐 CYBER DEFENSE CAPABILITIES</h2>
-        
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon">✅</div>
-                <h3>Real-time Threat Detection</h3>
-                <p>Advanced algorithms scan and neutralize malicious content in real-time, protecting against cyber attacks and harmful communications.</p>
+    <!-- Extension Features Section -->
+    <section class="section features-section">
+        <h2 class="section-title fade-in">Extension Features</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <span class="feature-icon">✅</span>
+                <h3 class="feature-title">Real-time Text Blur</h3>
+                <p class="feature-desc">Automatically detects and blurs harmful text content as you browse, protecting children from inappropriate language and content.</p>
             </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">⚙️</div>
-                <h3>AI-Powered Defense System</h3>
-                <p>Military-grade artificial intelligence that learns from global threat patterns and adapts to emerging cyber warfare tactics.</p>
+
+            <div class="feature-card fade-in">
+                <span class="feature-icon">🖼️</span>
+                <h3 class="feature-title">Image Blocking</h3>
+                <p class="feature-desc">Advanced image filtering technology blocks inappropriate visual content before it can be displayed on the screen.</p>
             </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">🖼️</div>
-                <h3>Visual Content Filtering</h3>
-                <p>Automatically detects and quarantines suspicious images and multimedia content before they can cause harm.</p>
+
+            <div class="feature-card fade-in">
+                <span class="feature-icon">⚙️</span>
+                <h3 class="feature-title">Offline & Fast</h3>
+                <p class="feature-desc">Works completely offline with lightning-fast performance. No internet connection required for content filtering.</p>
             </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">🌐</div>
-                <h3>Offline Security Mode</h3>
-                <p>Protection continues even during network outages. Core security protocols remain active without internet dependency.</p>
+
+            <div class="feature-card fade-in">
+                <span class="feature-icon">🔒</span>
+                <h3 class="feature-title">No Data Sent</h3>
+                <p class="feature-desc">Complete privacy protection. All filtering happens locally on your device - no data is ever sent to external servers.</p>
             </div>
-        </div>
-        
-        <div class="install-section">
-            <h3 style="color: #00ff00; margin-bottom: 1rem; text-transform: uppercase;">DEPLOYMENT INSTRUCTIONS</h3>
-            <p style="color: #cccccc; margin-bottom: 2rem;">Access classified installation protocols</p>
-            <button class="install-btn" onclick="openModal()">📋 ACCESS DEPLOYMENT GUIDE</button>
         </div>
     </section>
 
-    <!-- Installation Modal -->
-    <div id="installModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 style="color: #ff0000; margin-bottom: 1rem; text-transform: uppercase;">CLASSIFIED: SYSTEM DEPLOYMENT</h2>
-            <p style="color: #cccccc; margin-bottom: 2rem;">Follow these security protocols to deploy the Child Safety Enhanced Filter:</p>
-            
-            <div class="install-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Download Security Package</h4>
-                        <p>Execute the "🛡️ DEPLOY PROTECTION" command to download the encrypted security package.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Extract Security Files</h4>
-                        <p>Decrypt and extract the security package using your system's extraction protocols.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>Access Chrome Security Console</h4>
-                        <p>Navigate to <strong>chrome://extensions/</strong> or access via Menu → Security Tools → Extensions.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h4>Enable Developer Security Mode</h4>
-                        <p>Activate "Developer mode" in the top-right corner to enable advanced security features.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h4>Deploy Security Module</h4>
-                        <p>Click "Load unpacked" and select the extracted security folder to deploy the protection system.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <div class="step-content">
-                        <h4>Activate Cyber Shield</h4>
-                        <p>The security module will appear in your browser toolbar. Configure threat levels and activate protection.</p>
-                    </div>
-                </div>
+    <!-- Installation Guide -->
+    <section class="section installation-section">
+        <h2 class="section-title fade-in">Installation Guide & FAQ</h2>
+        
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                How to install the extension
+                <span class="faq-toggle">▼</span>
             </div>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <button class="download-btn" onclick="downloadExtension()">🛡️ DEPLOY PROTECTION NOW</button>
+            <div class="faq-answer">
+                <ol style="padding-left: 1.5rem; line-height: 1.8;">
+                    <li>Download the extension ZIP file by clicking the download button</li>
+                    <li>Extract the ZIP file to a folder on your computer</li>
+                    <li>Open Chrome and go to <strong>chrome://extensions/</strong></li>
+                    <li>Enable "Developer mode" in the top right corner</li>
+                    <li>Click "Load unpacked" and select the extracted folder</li>
+                    <li>The extension will now be active and protecting your browsing</li>
+                </ol>
             </div>
         </div>
-    </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                How it works
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p style="line-height: 1.8;">Our extension uses advanced content filtering algorithms that run entirely on your device. It scans webpage content in real-time and automatically blurs or blocks harmful material. The filtering happens instantly as pages load, ensuring children are protected from inappropriate content without any delays or interruptions to their browsing experience.</p>
+                <br>
+                <p style="line-height: 1.8;"><strong>Key Technologies:</strong></p>
+                <ul style="padding-left: 1.5rem; line-height: 1.8;">
+                    <li>Machine learning-based text analysis</li>
+                    <li>Image recognition for visual content</li>
+                    <li>Real-time DOM manipulation</li>
+                    <li>Local processing for privacy</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                How to report content
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p style="line-height: 1.8;">If you encounter harmful content that wasn't filtered, or if you need to report serious incidents:</p>
+                <br>
+                <ol style="padding-left: 1.5rem; line-height: 1.8;">
+                    <li><strong>Use our reporting form above</strong> - Fill out the incident details</li>
+                    <li><strong>Contact local authorities</strong> - Use the Kerala emergency contacts provided</li>
+                    <li><strong>Take screenshots</strong> - Document the harmful content (safely)</li>
+                    <li><strong>Note the URL</strong> - Record where the content was found</li>
+                    <li><strong>Report to platform</strong> - Also report directly to the website/platform</li>
+                </ol>
+                <br>
+                <p style="line-height: 1.8; color: var(--danger-red);"><strong>Remember:</strong> If there's immediate danger, always call emergency services first (100 in India).</p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                System Requirements & Compatibility
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p style="line-height: 1.8;"><strong>Supported Browsers:</strong></p>
+                <ul style="padding-left: 1.5rem; line-height: 1.8;">
+                    <li>Google Chrome (version 88 or higher)</li>
+                    <li>Microsoft Edge (Chromium-based)</li>
+                    <li>Brave Browser</li>
+                    <li>Other Chromium-based browsers</li>
+                </ul>
+                <br>
+                <p style="line-height: 1.8;"><strong>System Requirements:</strong></p>
+                <ul style="padding-left: 1.5rem; line-height: 1.8;">
+                    <li>Windows 10/11, macOS 10.14+, or Linux</li>
+                    <li>2GB RAM minimum</li>
+                    <li>50MB free disk space</li>
+                    <li>No internet connection required for filtering</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://github.com/child-safety-filter" target="_blank">
-                    🔗 SOURCE CODE REPOSITORY
-                </a>
-                <a href="#" onclick="downloadExtension()">🛡️ DEPLOY PROTECTION</a>
-                <a href="mailto:security@childsafetyfilter.org">📧 SECURITY CONTACT</a>
-            </div>
-            
-            <div class="footer-disclaimer">
-                <p><strong>⚠️ CLASSIFIED EDUCATIONAL CYBER SECURITY TOOL ⚠️</strong></p>
-                <p>This Child Safety Enhanced Filter is an open-source cybersecurity research project designed to demonstrate advanced threat detection and protection technologies. Developed for educational and research purposes in cybercrime prevention.</p>
-                <p style="margin-top: 1rem; opacity: 0.8;">© 2024 Cyber Security Research Division. Licensed under MIT Protocol.</p>
-                <p class="terminal-text" style="margin-top: 1rem;">SYSTEM STATUS: OPERATIONAL | THREAT LEVEL: MONITORED</p>
-            </div>
+        <div class="footer-links">
+            <a href="#github">GitHub Repository</a>
+            <a href="#credits">Credits & Acknowledgments</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#donate">Support Our Mission</a>
+        </div>
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--neutral-700);">
+            <p style="font-weight: 600; font-size: 1.1rem;"><strong>Built for awareness and education only.</strong></p>
+            <p class="footer-disclaimer">
+                This extension is provided as-is for educational and awareness purposes. While we strive for accuracy, 
+                no filtering system is 100% perfect. Always supervise children's internet usage and report serious 
+                incidents to appropriate authorities.
+            </p>
+            <p style="margin-top: 1rem; color: var(--neutral-400);">
+                © 2025 Child Safety Enhanced Filter. Created to protect children online.
+            </p>
         </div>
     </footer>
 
     <script>
-        // Matrix Rain Effect
-        function createMatrixRain() {
-            const container = document.getElementById('matrixRain');
-            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-            
-            for (let i = 0; i < 50; i++) {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = Math.random() * 100 + '%';
-                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                column.style.animationDelay = Math.random() * 2 + 's';
-                
-                let text = '';
-                for (let j = 0; j < 20; j++) {
-                    text += characters.charAt(Math.floor(Math.random() * characters.length)) + '<br>';
-                }
-                column.innerHTML = text;
-                
-                container.appendChild(column);
-            }
-        }
-
-        // Initialize matrix rain on load
-        window.addEventListener('load', createMatrixRain);
-
-        // Smooth scrolling function
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
+        // Smooth scrolling for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            document.querySelector('.reporting-section').scrollIntoView({
                 behavior: 'smooth'
             });
-        }
-
-        // Download extension function
-        function downloadExtension() {
-            alert('🛡️ INITIATING SECURITY DEPLOYMENT!\n\n⚠️ CLASSIFIED SYSTEM ACTIVATED ⚠️\n\nThis is a demonstration of cybersecurity protection technology. In production, this would deploy the actual Chrome extension security package.\n\n🔒 CYBER SHIELD STATUS: READY FOR DEPLOYMENT');
-            console.log('Cyber security extension deployment initiated');
-        }
-
-        // Modal functions
-        function openModal() {
-            document.getElementById('installModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('installModal').style.display = 'none';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('installModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-
-        // Report form submission
-        function submitReport(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const reportData = {
-                name: formData.get('name'),
-                incidentType: formData.get('incidentType'),
-                location: formData.get('location'),
-                description: formData.get('description'),
-                timestamp: new Date().toISOString()
-            };
-            
-            console.log('Cyber threat report submitted:', reportData);
-            
-            // Show success message
-            alert('🚨 THREAT REPORT TRANSMITTED SUCCESSFULLY!\n\n✅ SECURITY PROTOCOL ACTIVATED\n\nYour cybercrime report has been encrypted and transmitted to Kerala Cyber Security Division.\n\n🔒 Report ID: CYBER-' + Date.now() + '\n\n⚡ Response Team Notified');
-            
-            // Reset form
-            event.target.reset();
-        }
-
-        // Add cyber glitch effects
-        function addGlitchEffect() {
-            const elements = document.querySelectorAll('.section-title, .hero h1');
-            elements.forEach(el => {
-                setInterval(() => {
-                    if (Math.random() < 0.1) {
-                        el.classList.add('glitch');
-                        setTimeout(() => {
-                            el.classList.remove('glitch');
-                        }, 200);
-                    }
-                }, 3000);
-            });
-        }
-
-        // Initialize cyber effects
-        window.addEventListener('load', function() {
-            addGlitchEffect();
-            
-            // Add loading animation
-            document.body.style.opacity = '0';
-            setTimeout(() => {
-                document.body.style.transition = 'opacity 0.5s ease-in-out';
-                document.body.style.opacity = '1';
-            }, 100);
         });
 
-        // Add intersection observer for animation on scroll
+        // FAQ Toggle functionality
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            document.querySelectorAll('.faq-toggle').forEach(item => {
+                if (item !== toggle) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ item
+            answer.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        // Form submission handling
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const reportData = Object.fromEntries(formData);
+            
+            // Show success message with better styling
+            const successMessage = document.createElement('div');
+            successMessage.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, var(--secondary-green), var(--secondary-green-dark));
+                color: white;
+                padding: 2rem 3rem;
+                border-radius: 16px;
+                box-shadow: var(--shadow-2xl);
+                z-index: 10000;
+                text-align: center;
+                max-width: 400px;
+                font-weight: 600;
+            `;
+            successMessage.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                <h3 style="margin-bottom: 1rem;">Report Submitted Successfully</h3>
+                <p style="font-weight: 400; line-height: 1.6;">Thank you for your report. This information would typically be sent to the appropriate authorities. In a real implementation, this would be securely transmitted to child protection services.</p>
+                <button onclick="this.parentElement.remove()" style="margin-top: 1.5rem; background: rgba(255,255,255,0.2); border: none; color: white; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">Close</button>
+            `;
+            document.body.appendChild(successMessage);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (successMessage.parentElement) {
+                    successMessage.remove();
+                }
+            }, 5000);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Enhanced navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = 'var(--shadow-xl)';
+                navbar.style.borderBottom = '1px solid rgba(226, 232, 240, 0.9)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'var(--shadow-lg)';
+                navbar.style.borderBottom = '1px solid rgba(226, 232, 240, 0.8)';
+            }
+        });
+
+        // Enhanced Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100); // Stagger animations
                 }
             });
         }, observerOptions);
 
-        // Observe elements for animation
+        // Initialize animations
         document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.benefit-card, .contact-item, .step');
+            const animatedElements = document.querySelectorAll('.fade-in');
+            
             animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(el);
+            });
+
+            // Add parallax effect to hero section
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
             });
         });
 
-        // Cyber security status updates
-        setInterval(() => {
-            const statusElements = document.querySelectorAll('.terminal-text');
-            statusElements.forEach(el => {
-                if (Math.random() < 0.3) {
-                    el.style.boxShadow = '0 0 10px rgba(0, 255, 0, 0.5)';
-                    setTimeout(() => {
-                        el.style.boxShadow = 'none';
-                    }, 500);
-                }
+        // Video error handling with better fallback
+        document.querySelector('.hero-video').addEventListener('error', function() {
+            this.style.display = 'none';
+            this.parentElement.innerHTML = `
+                <div style="
+                    width: 100%; 
+                    height: 300px; 
+                    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green)); 
+                    border-radius: 24px; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    color: white; 
+                    font-size: 1.2rem;
+                    box-shadow: var(--shadow-2xl);
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <div style="text-align: center; z-index: 2; position: relative;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">🛡️</div>
+                        <div style="font-weight: 600;">Child Safety Protection</div>
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Video Preview</div>
+                    </div>
+                    <div style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 0%, transparent 50%);
+                    "></div>
+                </div>
+            `;
+        });
+
+        // Enhanced download button tracking
+        document.querySelectorAll('a[href="child-safety-enhanced-extension.zip"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Create download modal
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.8);
+                    backdrop-filter: blur(10px);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                `;
+                
+                modal.innerHTML = `
+                    <div style="
+                        background: white;
+                        padding: 3rem;
+                        border-radius: 24px;
+                        max-width: 500px;
+                        text-align: center;
+                        box-shadow: var(--shadow-2xl);
+                        position: relative;
+                    ">
+                        <div style="font-size: 4rem; margin-bottom: 1.5rem;">🛡️</div>
+                        <h2 style="color: var(--neutral-900); margin-bottom: 1rem; font-size: 1.5rem;">Extension Download</h2>
+                        <p style="color: var(--neutral-600); line-height: 1.6; margin-bottom: 2rem;">
+                            In a real implementation, this would download the extension ZIP file. 
+                            The extension would include content filtering, reporting features, and parental controls.
+                        </p>
+                        <div style="display: flex; gap: 1rem; justify-content: center;">
+                            <button onclick="this.closest('.modal').remove()" style="
+                                background: var(--neutral-200);
+                                border: none;
+                                padding: 0.75rem 1.5rem;
+                                border-radius: 12px;
+                                cursor: pointer;
+                                font-weight: 600;
+                                color: var(--neutral-700);
+                            ">Close</button>
+                            <button onclick="this.closest('.modal').remove()" style="
+                                background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+                                border: none;
+                                padding: 0.75rem 1.5rem;
+                                border-radius: 12px;
+                                cursor: pointer;
+                                font-weight: 600;
+                                color: white;
+                            ">Understand</button>
+                        </div>
+                    </div>
+                `;
+                
+                modal.className = 'modal';
+                document.body.appendChild(modal);
+                
+                // Close on backdrop click
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
             });
-        }, 2000);
+        });
+
+        // Add loading states for better UX
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
     </script>
 </body>
 </html>
